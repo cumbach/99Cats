@@ -1,0 +1,21 @@
+<head> <title> <% @cat.name %> </title> </head>
+
+<body>
+  <table>
+    <% @cat.attributes.each do |attribute, value| %>
+      <tr>
+        <td> <%= attribute %> </td>
+        <td> <%= value %> </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <h3>Rental Requests</h3>
+  <table>
+    <% @cat.cat_rental_requests.order(:start_date).each do |request| %>
+      <%= request.start_date %> <br>
+      <%= request.end_date %> <br>
+      <%= request.status %> <br><br>
+    <% end %>
+  </table>
+</body>
